@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get_api/model/product_res_model.dart';
 import 'package:get_api/server/api_helper.dart';
@@ -31,25 +32,31 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.white,
-        extendBody: true,
-        appBar: AppBar(
+    return WillPopScope(
+      onWillPop: () async {
+        SystemNavigator.pop();
+        return true;
+      },
+      child: Scaffold(
+          resizeToAvoidBottomInset: false,
           backgroundColor: Colors.white,
-          surfaceTintColor: Colors.transparent,
-          elevation: 1,
-          title: const Text(
-            'Get X Build Api',
-            style: TextStyle(
-                fontSize: 26,
-                color: Colors.black,
-                fontWeight: FontWeight.normal,
-                fontFamily: 'Signatra'),
+          extendBody: true,
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            surfaceTintColor: Colors.transparent,
+            elevation: 1,
+            title: const Text(
+              'Get X Build Api',
+              style: TextStyle(
+                  fontSize: 26,
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                  fontFamily: 'Signatra'),
+            ),
+            centerTitle: true,
           ),
-          centerTitle: true,
-        ),
-        body: _isSearch ? listSearchProducts() : listProducts());
+          body: _isSearch ? listSearchProducts() : listProducts()),
+    );
   }
 
   Widget listProducts() {

@@ -46,6 +46,7 @@ dependencies:
   cached_network_image: ^3.3.0
   connectivity_plus: ^5.0.1
   lottie: ^2.7.0
+  another_flutter_splash_screen: ^1.2.0
 
 
 dev_dependencies:
