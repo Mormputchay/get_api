@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
             surfaceTintColor: Colors.transparent,
             elevation: 1,
             title: const Text(
-              'Get X Build Api',
+              'Get X Build',
               style: TextStyle(
                   fontSize: 26,
                   color: Colors.black,
